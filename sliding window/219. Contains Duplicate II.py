@@ -1,3 +1,8 @@
+'''
+https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/
+'''
+
+from typing import List
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         hashmap = {}
