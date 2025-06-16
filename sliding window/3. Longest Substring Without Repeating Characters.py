@@ -4,19 +4,35 @@
 """
 
 def lengthOfLongestSubstring(self, s: str) -> int:
-    longestStr = ""
-    maxCount = 0
+    lngestSubString = set()
+    left = 0
+    maxSubString = 0
+    for right in range(len(s)):
+        while s[right] in lngestSubString:
+            lngestSubString.remove(s[left])
+            left+=1
+        lngestSubString.add(s[right])
+        maxSubString = max(maxSubString, right - left +1)
+    return maxSubString
 
-    for i in range(len(s)):
-        if s[i] not in longestStr:
-            longestStr += s[i]
-        elif s[i] in longestStr:
-            maxCount = max(maxCount, len(longestStr))
-            while s[i] in longestStr:
-                longestStr= longestStr[1:]
-            longestStr += s[i]
+
+
+
+
+# def lengthOfLongestSubstring(self, s: str) -> int:
+#     longestStr = ""
+#     maxCount = 0
+
+#     for i in range(len(s)):
+#         if s[i] not in longestStr:
+#             longestStr += s[i]
+#         elif s[i] in longestStr:
+#             maxCount = max(maxCount, len(longestStr))
+#             while s[i] in longestStr:
+#                 longestStr= longestStr[1:]
+#             longestStr += s[i]
             
-    maxCount = max(maxCount, len(longestStr))
-    return maxCount
+#     maxCount = max(maxCount, len(longestStr))
+#     return maxCount
 
 
